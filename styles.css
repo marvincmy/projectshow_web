@@ -381,7 +381,7 @@ body {
     flex-direction: column;
     flex: 1;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.82);
+    background: linear-gradient(180deg, rgba(255,255,255,0.86) 0%, rgba(224,238,255,0.86) 100%);
     position: relative;
     z-index: 1;
 }
@@ -522,7 +522,7 @@ body {
     padding: 16px 18px 12px;
     overflow-y: auto;
     justify-content: flex-start;
-    background: rgba(255, 255, 255, 0.82);
+    background: linear-gradient(180deg, rgba(255,255,255,0.86) 0%, rgba(224,238,255,0.86) 100%);
 }
 
 .prog-detail-block {
