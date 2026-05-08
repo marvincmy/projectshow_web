@@ -3,6 +3,8 @@ if (document.getElementById('startBtn')) {
     const startBtn        = document.getElementById('startBtn');
     const demoBtn         = document.getElementById('demoBtn');
     const websiteUrlInput = document.getElementById('websiteUrl');
+    const iframeZoomInput = document.getElementById('iframeZoom');
+    const iframeZoomRange = document.getElementById('iframeZoomRange');
     const qrUrlInput      = document.getElementById('qrUrl');
     const sloganEngInput  = document.getElementById('sloganEng');
     const sloganChiInput  = document.getElementById('sloganChi');
@@ -39,6 +41,19 @@ if (document.getElementById('startBtn')) {
         showSlide1Toggle.checked = saved === null ? true : saved === 'true';
     }
     restore(websiteUrlInput, 'showcaseUrl',   'https://example.com');
+    const savedZoom = localStorage.getItem('iframeZoom') || '100';
+    if (iframeZoomInput) iframeZoomInput.value = savedZoom;
+    if (iframeZoomRange) iframeZoomRange.value = savedZoom;
+
+    // Keep slider and number input in sync
+    if (iframeZoomRange && iframeZoomInput) {
+        iframeZoomRange.addEventListener('input', () => { iframeZoomInput.value = iframeZoomRange.value; });
+        iframeZoomInput.addEventListener('input', () => {
+            const v = Math.min(200, Math.max(25, parseInt(iframeZoomInput.value) || 100));
+            iframeZoomInput.value = v;
+            iframeZoomRange.value = v;
+        });
+    }
     restore(qrUrlInput,      'qrUrl');
     restore(sloganEngInput,  'sloganEng',     'Interested in this project?');
     restore(sloganChiInput,  'sloganChi',     '對呢個作品有興趣？');
@@ -61,6 +76,7 @@ if (document.getElementById('startBtn')) {
         localStorage.setItem('projDesc',         projDescInput.value.trim());
         localStorage.setItem('showSlide1',       showSlide1Toggle ? showSlide1Toggle.checked : true);
         localStorage.setItem('showcaseUrl',      url);
+        localStorage.setItem('iframeZoom',       iframeZoomInput ? (parseInt(iframeZoomInput.value) || 100) : 100);
         localStorage.setItem('qrUrl',            qrUrlInput.value.trim() || url);
         localStorage.setItem('sloganEng',        sloganEngInput.value.trim()   || 'Interested in this project?');
         localStorage.setItem('sloganChi',        sloganChiInput.value.trim()   || '對呢個作品有興趣？');
@@ -115,6 +131,13 @@ if (document.getElementById('demoIframe')) {
     const showcaseUrl = get('showcaseUrl', 'https://example.com');
     try { new URL(showcaseUrl); demoIframe.src = showcaseUrl; }
     catch (e) { alert('Invalid URL'); window.location.href = 'index.html'; }
+
+    // Apply zoom to iframe
+    const iframeZoomPct = parseFloat(get('iframeZoom', '100')) / 100;
+    demoIframe.style.transform       = `scale(${iframeZoomPct})`;
+    demoIframe.style.transformOrigin = 'top left';
+    demoIframe.style.width           = `${100 / iframeZoomPct}%`;
+    demoIframe.style.height          = `${100 / iframeZoomPct}%`;
 
     // Populate slide 1
     const projTitleEngDisplay   = document.getElementById('projTitleEngDisplay');

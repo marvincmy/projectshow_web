@@ -101,6 +101,35 @@ body {
     font-size: 0.85rem;
 }
 
+.zoom-input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.zoom-input-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--primary-color);
+    height: 4px;
+    cursor: pointer;
+}
+
+.zoom-input-row input[type="number"] {
+    width: 68px;
+    padding: 6px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.zoom-unit {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-weight: 500;
+}
+
 .button-group {
     display: flex;
     gap: 10px;

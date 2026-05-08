@@ -42,6 +42,15 @@
                 </div>
 
                 <div class="input-section">
+                    <label for="iframeZoom">Left Panel Zoom (%):</label>
+                    <div class="zoom-input-row">
+                        <input type="range" id="iframeZoomRange" min="25" max="200" value="100" step="5">
+                        <input type="number" id="iframeZoom" min="25" max="200" value="100" step="5">
+                        <span class="zoom-unit">%</span>
+                    </div>
+                </div>
+
+                <div class="input-section">
                     <label for="qrUrl">Project QR Code URL:</label>
                     <input type="url" id="qrUrl"
                         placeholder="https://your-project-link.com">
