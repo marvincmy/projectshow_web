@@ -6,6 +6,8 @@ if (document.getElementById('startBtn')) {
     const qrUrlInput      = document.getElementById('qrUrl');
     const sloganEngInput  = document.getElementById('sloganEng');
     const sloganChiInput  = document.getElementById('sloganChi');
+    const projTitleEngInput = document.getElementById('projTitleEng');
+    const projTitleChiInput = document.getElementById('projTitleChi');
     const progNameEngInput= document.getElementById('progNameEng');
     const progNameChiInput= document.getElementById('progNameChi');
     const courseCodeInput = document.getElementById('courseCode');
@@ -21,6 +23,8 @@ if (document.getElementById('startBtn')) {
         if (v !== null) el.value = v;
         else if (fallback) el.value = fallback;
     };
+    restore(projTitleEngInput, 'projTitleEng', 'Smart Trash Scanner');
+    restore(projTitleChiInput, 'projTitleChi', '關於將垃圾擺喺鏡頭前面就會話你知點掉嘅神奇網頁');
     restore(websiteUrlInput, 'showcaseUrl',   'https://example.com');
     restore(qrUrlInput,      'qrUrl');
     restore(sloganEngInput,  'sloganEng',     'Interested in this project?');
@@ -35,6 +39,8 @@ if (document.getElementById('startBtn')) {
     restore(progQrInput,     'progQrUrl');
 
     function saveAndLaunch(url) {
+        sessionStorage.setItem('projTitleEng',     projTitleEngInput.value.trim() || 'Smart Trash Scanner');
+        sessionStorage.setItem('projTitleChi',     projTitleChiInput.value.trim() || '關於將垃圾擺喺鏡頭前面就會話你知點掉嘅神奇網頁');
         sessionStorage.setItem('showcaseUrl',      url);
         sessionStorage.setItem('qrUrl',            qrUrlInput.value.trim() || url);
         sessionStorage.setItem('sloganEng',        sloganEngInput.value.trim()   || 'Interested in this project?');
@@ -90,6 +96,11 @@ if (document.getElementById('demoIframe')) {
     catch (e) { alert('Invalid URL'); window.location.href = 'index.html'; }
 
     // Populate slide 1
+    const projTitleEngDisplay = document.getElementById('projTitleEngDisplay');
+    const projTitleChiDisplay = document.getElementById('projTitleChiDisplay');
+    if (projTitleEngDisplay) projTitleEngDisplay.textContent = get('projTitleEng', 'Smart Trash Scanner');
+    if (projTitleChiDisplay) projTitleChiDisplay.textContent = get('projTitleChi', '關於將垃圾擺喺鏡頭前面就會話你知點掉嘅神奇網頁');
+
     progNameEngDisplay.textContent = get('progNameEng', 'HD in Applied AI');
     progNameChiDisplay.textContent = get('progNameChi', '應用人工智能高級文憑');
     if (courseCodeDisplay) courseCodeDisplay.textContent = get('courseCode', 'IT114127');
