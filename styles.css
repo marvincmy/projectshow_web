@@ -707,6 +707,12 @@ body {
     margin-top: 4px;
 }
 
+/* Slide 3 (English) — slightly smaller body text */
+#slide3 .detail-text {
+    font-size: 0.88rem;
+    font-weight: 500;
+}
+
 .qr-section-small {
     flex: 0;
     gap: 8px;
