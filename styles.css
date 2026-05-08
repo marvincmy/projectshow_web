@@ -452,6 +452,43 @@ body {
     line-height: 1.5;
 }
 
+/* Team Info — between title and QR section */
+.team-info {
+    width: 100%;
+    text-align: center;
+    padding: 0 16px 4px;
+    margin-top: -80px;
+}
+
+.team-students {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px 10px;
+    margin-bottom: 6px;
+}
+
+.team-student-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    background: rgba(0, 85, 184, 0.08);
+    border-radius: 20px;
+    padding: 3px 12px;
+}
+
+.team-supervisor {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-light);
+}
+
+.team-supervisor::before {
+    content: 'Supervisor: ';
+    font-weight: 600;
+    color: #0055b8;
+}
+
 /* QR Section — takes equal half, vertically centred */
 .qr-section {
     flex: 1;

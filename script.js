@@ -6,8 +6,10 @@ if (document.getElementById('startBtn')) {
     const qrUrlInput      = document.getElementById('qrUrl');
     const sloganEngInput  = document.getElementById('sloganEng');
     const sloganChiInput  = document.getElementById('sloganChi');
-    const projTitleEngInput = document.getElementById('projTitleEng');
-    const projTitleChiInput = document.getElementById('projTitleChi');
+    const projTitleEngInput  = document.getElementById('projTitleEng');
+    const projTitleChiInput  = document.getElementById('projTitleChi');
+    const studentNamesInput  = document.getElementById('studentNames');
+    const supervisorInput    = document.getElementById('supervisorName');
     const progNameEngInput= document.getElementById('progNameEng');
     const progNameChiInput= document.getElementById('progNameChi');
     const courseCodeInput = document.getElementById('courseCode');
@@ -25,6 +27,8 @@ if (document.getElementById('startBtn')) {
     };
     restore(projTitleEngInput, 'projTitleEng', 'Smart Trash Scanner');
     restore(projTitleChiInput, 'projTitleChi', '關於將垃圾擺喺鏡頭前面就會話你知點掉嘅神奇網頁');
+    restore(studentNamesInput, 'studentNames');
+    restore(supervisorInput,   'supervisorName');
     restore(websiteUrlInput, 'showcaseUrl',   'https://example.com');
     restore(qrUrlInput,      'qrUrl');
     restore(sloganEngInput,  'sloganEng',     'Interested in this project?');
@@ -41,6 +45,8 @@ if (document.getElementById('startBtn')) {
     function saveAndLaunch(url) {
         localStorage.setItem('projTitleEng',     projTitleEngInput.value.trim() || 'Smart Trash Scanner');
         localStorage.setItem('projTitleChi',     projTitleChiInput.value.trim() || '關於將垃圾擺喺鏡頭前面就會話你知點掉嘅神奇網頁');
+        localStorage.setItem('studentNames',     studentNamesInput.value.trim());
+        localStorage.setItem('supervisorName',   supervisorInput.value.trim());
         localStorage.setItem('showcaseUrl',      url);
         localStorage.setItem('qrUrl',            qrUrlInput.value.trim() || url);
         localStorage.setItem('sloganEng',        sloganEngInput.value.trim()   || 'Interested in this project?');
@@ -96,10 +102,26 @@ if (document.getElementById('demoIframe')) {
     catch (e) { alert('Invalid URL'); window.location.href = 'index.html'; }
 
     // Populate slide 1
-    const projTitleEngDisplay = document.getElementById('projTitleEngDisplay');
-    const projTitleChiDisplay = document.getElementById('projTitleChiDisplay');
+    const projTitleEngDisplay   = document.getElementById('projTitleEngDisplay');
+    const projTitleChiDisplay   = document.getElementById('projTitleChiDisplay');
+    const studentNamesDisplay   = document.getElementById('studentNamesDisplay');
+    const supervisorDisplay     = document.getElementById('supervisorDisplay');
+
     if (projTitleEngDisplay) projTitleEngDisplay.textContent = get('projTitleEng', 'Smart Trash Scanner');
     if (projTitleChiDisplay) projTitleChiDisplay.textContent = get('projTitleChi', '關於將垃圾擺喺鏡頭前面就會話你知點掉嘅神奇網頁');
+
+    // Render each student name as a pill badge
+    if (studentNamesDisplay) {
+        const names = get('studentNames').split('\n').map(n => n.trim()).filter(Boolean);
+        studentNamesDisplay.innerHTML = names
+            .map(n => `<span class="team-student-name">${n}</span>`)
+            .join('');
+    }
+    if (supervisorDisplay) {
+        const sup = get('supervisorName');
+        supervisorDisplay.textContent = sup;
+        supervisorDisplay.style.display = sup ? '' : 'none';
+    }
 
     progNameEngDisplay.textContent = get('progNameEng', 'HD in Applied AI');
     progNameChiDisplay.textContent = get('progNameChi', '應用人工智能高級文憑');
