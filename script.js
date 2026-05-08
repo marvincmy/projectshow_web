@@ -63,6 +63,9 @@ if (document.getElementById('demoIframe')) {
         startLeftWidth = document.querySelector('.left-panel').offsetWidth;
         divider.classList.add('dragging');
         document.body.style.cursor = 'col-resize';
+        // Prevent the iframe from swallowing mouse events during drag
+        demoIframe.style.pointerEvents = 'none';
+        e.preventDefault();
     });
 
     document.addEventListener('mousemove', (e) => {
@@ -93,6 +96,7 @@ if (document.getElementById('demoIframe')) {
             isDraggingDivider = false;
             divider.classList.remove('dragging');
             document.body.style.cursor = 'auto';
+            demoIframe.style.pointerEvents = 'auto';
         }
     });
 }
