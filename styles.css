@@ -428,8 +428,8 @@ body {
 /* Project Title — Slide 1 */
 .project-title {
     width: 100%;
-    padding: 16px 20px 8px;
-    border-bottom: 1px solid rgba(0, 85, 184, 0.15);
+    text-align: center;
+    padding: 0 16px 4px;
 }
 
 .project-title p:first-child {
@@ -440,7 +440,7 @@ body {
 }
 
 .project-title p[lang="zh-Hant"] {
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     font-weight: 500;
     color: var(--text-light);
     margin-top: 4px;
