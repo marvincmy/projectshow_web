@@ -29,7 +29,7 @@
                     </span>
                 </div>
 
-                <!-- Persistent: Programme code + name (shown on every slide) -->
+                <!-- Persistent: Programme code + name across all slides -->
                 <div class="persistent-info">
                     <div class="course-code-badge">
                         <span id="courseCodeDisplay"></span>
@@ -61,29 +61,26 @@
                         </div>
                     </div>
 
-                    <!-- Slide 2: Programme Details + Programme QR -->
+                    <!-- Slide 2: Programme Details — English -->
                     <div class="slide" id="slide2">
                         <div class="info-container info-container-2">
 
                             <div class="prog-detail-block">
                                 <h3 class="detail-heading">
                                     <span>Programme Description</span>
-                                    <span lang="zh-Hant">課程簡介</span>
                                 </h3>
                                 <p id="progDescEngDisplay" class="detail-text"></p>
-                                <p id="progDescChiDisplay" class="detail-text detail-text-chi" lang="zh-Hant"></p>
                             </div>
 
                             <div class="prog-detail-block">
                                 <h3 class="detail-heading">
                                     <span>Major Subjects</span>
-                                    <span lang="zh-Hant">主要科目</span>
                                 </h3>
                                 <p id="majorSubjectsEngDisplay" class="detail-text"></p>
-                                <p id="majorSubjectsChiDisplay" class="detail-text detail-text-chi" lang="zh-Hant"></p>
                             </div>
 
-                            <div class="qr-section qr-section-small">
+                            <!-- Programme QR pinned to bottom -->
+                            <div class="qr-section qr-section-bottom">
                                 <div class="qr-block">
                                     <img id="progQrImage" class="qr-image" src="" alt="Programme QR Code">
                                 </div>
@@ -96,33 +93,33 @@
                         </div>
                     </div>
 
-                    <!-- Slide 3: Project QR + Programme Info Eng + Chi -->
+                    <!-- Slide 3: Programme Details — Chinese -->
                     <div class="slide" id="slide3">
                         <div class="info-container info-container-2">
-
-                            <div class="qr-section qr-section-small">
-                                <div class="qr-block">
-                                    <img id="qrImage2" class="qr-image qr-image-lg" src="" alt="Project QR Code">
-                                </div>
-                                <div class="scan-text">
-                                    <p>Scan and Visit Our Project</p>
-                                    <p lang="zh-Hant">掃描瀏覽我們的作品</p>
-                                </div>
-                            </div>
-
-                            <div class="prog-detail-block">
-                                <h3 class="detail-heading">
-                                    <span>About This Programme</span>
-                                    <span lang="zh-Hant">關於此課程</span>
-                                </h3>
-                                <p id="progDescEngDisplay2" class="detail-text"></p>
-                            </div>
 
                             <div class="prog-detail-block">
                                 <h3 class="detail-heading">
                                     <span lang="zh-Hant">課程簡介</span>
                                 </h3>
-                                <p id="progDescChiDisplay2" class="detail-text" lang="zh-Hant"></p>
+                                <p id="progDescChiDisplay" class="detail-text" lang="zh-Hant"></p>
+                            </div>
+
+                            <div class="prog-detail-block">
+                                <h3 class="detail-heading">
+                                    <span lang="zh-Hant">主要科目</span>
+                                </h3>
+                                <p id="majorSubjectsChiDisplay" class="detail-text" lang="zh-Hant"></p>
+                            </div>
+
+                            <!-- Programme QR pinned to bottom -->
+                            <div class="qr-section qr-section-bottom">
+                                <div class="qr-block">
+                                    <img id="progQrImage2" class="qr-image" src="" alt="Programme QR Code">
+                                </div>
+                                <div class="scan-text">
+                                    <p>Scan for Programme Info</p>
+                                    <p lang="zh-Hant">掃描了解更多課程資訊</p>
+                                </div>
                             </div>
 
                         </div>
@@ -130,19 +127,20 @@
 
                 </div>
 
-                <!-- Slide indicator dots -->
+                <!-- Dot bar: gear | dots | pause/play -->
                 <div class="slide-dots">
-                    <span class="dot active" data-slide="0"></span>
-                    <span class="dot" data-slide="1"></span>
-                    <span class="dot" data-slide="2"></span>
+                    <button id="setupBtn" class="dots-bar-btn" title="Setup">⚙</button>
+                    <div class="dots-group">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                    <button id="pauseBtn" class="dots-bar-btn" title="Pause / Play">⏸</button>
                 </div>
 
             </div>
         </div>
     </div>
-
-    <!-- Gear / Setup button fixed to lower-right corner -->
-    <button id="setupBtn" class="setup-btn" title="Setup">⚙</button>
 
     <script src="script.js"></script>
 </body>

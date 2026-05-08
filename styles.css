@@ -347,15 +347,7 @@ body {
     pointer-events: auto;
 }
 
-/* Slide indicator dots */
-.slide-dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    padding: 8px 0;
-    background: #ffffff;
-    border-top: 1px solid var(--border-color);
-}
+/* Slide indicator dots — layout handled in lower block */
 
 .dot {
     width: 8px;
@@ -562,23 +554,45 @@ body {
     margin-top: 0;
 }
 
-/* Gear / Setup button — fixed lower-right corner */
-.setup-btn {
-    position: fixed;
-    bottom: 14px;
-    right: 16px;
+/* Programme QR pinned to bottom of slide */
+.qr-section-bottom {
+    margin-top: auto;
+    padding-bottom: 50px;
+    gap: 10px;
+    flex: 0;
+}
+
+/* Dot bar: gear | dots | pause */
+.slide-dots {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 14px;
+    background: #ffffff;
+    border-top: 1px solid var(--border-color);
+}
+
+.dots-group {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.dots-bar-btn {
     background: transparent;
     border: none;
     color: #9ca3af;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
-    padding: 4px;
+    padding: 4px 6px;
+    border-radius: 6px;
     line-height: 1;
-    z-index: 100;
+    transition: color 0.2s, background 0.2s;
 }
 
-.setup-btn:hover {
-    color: #6b7280;
+.dots-bar-btn:hover {
+    color: var(--primary-color);
+    background: #f0f6ff;
 }
 
 /* ===== RESPONSIVE ===== */

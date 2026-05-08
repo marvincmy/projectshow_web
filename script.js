@@ -67,9 +67,11 @@ if (document.getElementById('startBtn')) {
 if (document.getElementById('demoIframe')) {
     const demoIframe           = document.getElementById('demoIframe');
     const setupBtn             = document.getElementById('setupBtn');
+    const pauseBtn             = document.getElementById('pauseBtn');
     const divider              = document.getElementById('divider');
     const qrImage              = document.getElementById('qrImage');
     const progQrImage          = document.getElementById('progQrImage');
+    const progQrImage2         = document.getElementById('progQrImage2');
     const progNameEngDisplay   = document.getElementById('progNameEngDisplay');
     const progNameChiDisplay   = document.getElementById('progNameChiDisplay');
     const courseCodeDisplay    = document.getElementById('courseCodeDisplay');
@@ -79,9 +81,6 @@ if (document.getElementById('demoIframe')) {
     const progDescChiDisplay   = document.getElementById('progDescChiDisplay');
     const majorEngDisplay      = document.getElementById('majorSubjectsEngDisplay');
     const majorChiDisplay      = document.getElementById('majorSubjectsChiDisplay');
-    const progDescEngDisplay2  = document.getElementById('progDescEngDisplay2');
-    const progDescChiDisplay2  = document.getElementById('progDescChiDisplay2');
-    const qrImage2             = document.getElementById('qrImage2');
 
     const get = (key, fallback = '') => sessionStorage.getItem(key) || fallback;
 
@@ -99,25 +98,24 @@ if (document.getElementById('demoIframe')) {
     const qrUrl = get('qrUrl', showcaseUrl);
     qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=175x175&margin=6&data=${encodeURIComponent(qrUrl)}`;
 
-    // Populate slide 2
+    // Populate slides 2 & 3 (Eng + Chi programme details)
     if (progDescEngDisplay)  progDescEngDisplay.textContent  = get('progDescEng');
     if (progDescChiDisplay)  progDescChiDisplay.textContent  = get('progDescChi');
     if (majorEngDisplay)     majorEngDisplay.textContent     = get('majorSubjectsEng');
     if (majorChiDisplay)     majorChiDisplay.textContent     = get('majorSubjectsChi');
     const progQrUrl = get('progQrUrl');
-    if (progQrUrl && progQrImage) {
-        progQrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=175x175&margin=6&data=${encodeURIComponent(progQrUrl)}`;
-    }
-
-    // Slide 3: reuse project QR + programme description
-    if (qrImage2) qrImage2.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=6&data=${encodeURIComponent(qrUrl)}`;
-    if (progDescEngDisplay2) progDescEngDisplay2.textContent = get('progDescEng');
-    if (progDescChiDisplay2) progDescChiDisplay2.textContent = get('progDescChi');
+    const progQrSrc = progQrUrl
+        ? `https://api.qrserver.com/v1/create-qr-code/?size=175x175&margin=6&data=${encodeURIComponent(progQrUrl)}`
+        : '';
+    if (progQrSrc && progQrImage)  progQrImage.src  = progQrSrc;
+    if (progQrSrc && progQrImage2) progQrImage2.src = progQrSrc;
 
     // ===== SLIDE ROTATION =====
     const slides = document.querySelectorAll('.slide');
     const dots   = document.querySelectorAll('.dot');
     let currentSlide = 0;
+    let isPaused = false;
+    let slideTimer = null;
 
     function goToSlide(index) {
         slides[currentSlide].classList.remove('active');
@@ -127,17 +125,31 @@ if (document.getElementById('demoIframe')) {
         dots[currentSlide].classList.add('active');
     }
 
+    function startTimer(delay = 10000) {
+        clearInterval(slideTimer);
+        if (!isPaused) {
+            slideTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), delay);
+        }
+    }
+
+    startTimer();
+
+    // Dot click — hold for 20s before next auto-advance
     dots.forEach(dot =>
         dot.addEventListener('click', () => {
             goToSlide(parseInt(dot.dataset.slide));
-            resetTimer();
+            startTimer(20000);
         })
     );
 
-    let slideTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 10000);
-    function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 10000); }
+    // Pause / Play
+    pauseBtn.addEventListener('click', () => {
+        isPaused = !isPaused;
+        pauseBtn.textContent = isPaused ? '▶' : '⏸';
+        isPaused ? clearInterval(slideTimer) : startTimer();
+    });
 
-    // Setup button
+    // Setup (gear) button
     setupBtn.addEventListener('click', () => { window.location.href = 'index.html'; });
 
     // ===== RESIZABLE DIVIDER =====
