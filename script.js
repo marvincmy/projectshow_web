@@ -7,6 +7,8 @@ if (document.getElementById('startBtn')) {
     const progNameEngInput = document.getElementById('progNameEng');
     const progNameChiInput = document.getElementById('progNameChi');
     const courseCodeInput = document.getElementById('courseCode');
+    const sloganEngInput = document.getElementById('sloganEng');
+    const sloganChiInput = document.getElementById('sloganChi');
 
     // Restore previously saved values
     websiteUrlInput.value = sessionStorage.getItem('showcaseUrl') || 'https://example.com';
@@ -14,6 +16,8 @@ if (document.getElementById('startBtn')) {
     if (sessionStorage.getItem('progNameEng')) progNameEngInput.value = sessionStorage.getItem('progNameEng');
     if (sessionStorage.getItem('progNameChi')) progNameChiInput.value = sessionStorage.getItem('progNameChi');
     if (sessionStorage.getItem('courseCode')) courseCodeInput.value = sessionStorage.getItem('courseCode');
+    if (sessionStorage.getItem('sloganEng')) sloganEngInput.value = sessionStorage.getItem('sloganEng');
+    if (sessionStorage.getItem('sloganChi')) sloganChiInput.value = sessionStorage.getItem('sloganChi');
 
     startBtn.addEventListener('click', () => {
         const url = websiteUrlInput.value.trim();
@@ -43,6 +47,8 @@ if (document.getElementById('startBtn')) {
         sessionStorage.setItem('progNameEng', progNameEngInput.value.trim() || 'HD in Applied AI');
         sessionStorage.setItem('progNameChi', progNameChiInput.value.trim() || '應用人工智能高級文憑');
         sessionStorage.setItem('courseCode', courseCodeInput.value.trim() || 'IT114127');
+        sessionStorage.setItem('sloganEng', sloganEngInput.value.trim() || 'Interested in this project?');
+        sessionStorage.setItem('sloganChi', sloganChiInput.value.trim() || '對呢個作品有興趣？');
         window.location.href = 'showcase.html';
     }
 }
@@ -56,6 +62,8 @@ if (document.getElementById('demoIframe')) {
     const progNameEngDisplay = document.getElementById('progNameEngDisplay');
     const progNameChiDisplay = document.getElementById('progNameChiDisplay');
     const courseCodeDisplay = document.getElementById('courseCodeDisplay');
+    const sloganEngDisplay = document.getElementById('sloganEngDisplay');
+    const sloganChiDisplay = document.getElementById('sloganChiDisplay');
 
     let isDraggingDivider = false;
 
@@ -73,6 +81,8 @@ if (document.getElementById('demoIframe')) {
     progNameEngDisplay.textContent = sessionStorage.getItem('progNameEng') || 'HD in Applied AI';
     progNameChiDisplay.textContent = sessionStorage.getItem('progNameChi') || '應用人工智能高級文憑';
     courseCodeDisplay.textContent = sessionStorage.getItem('courseCode') || 'IT114127';
+    sloganEngDisplay.textContent = sessionStorage.getItem('sloganEng') || 'Interested in this project?';
+    sloganChiDisplay.textContent = sessionStorage.getItem('sloganChi') || '對呢個作品有興趣？';
 
     // Generate QR code from stored URL
     const qrUrl = sessionStorage.getItem('qrUrl') || showcaseUrl;

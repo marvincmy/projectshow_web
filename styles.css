@@ -207,16 +207,17 @@ body {
     gap: 2px;
 }
 
-.panel-header-title .title-chi {
-    font-weight: 700;
-    font-size: 0.95rem;
-    color: var(--text-light);
-}
-
 .panel-header-title .title-eng {
     font-weight: 700;
     font-size: 1rem;
     color: var(--text-dark);
+}
+
+.panel-header-title .title-chi {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    text-align: right;
 }
 
 .iframe-display {
@@ -284,6 +285,25 @@ body {
     font-weight: 500 !important;
     color: var(--text-light) !important;
     margin-top: 2px;
+}
+
+/* Slogan */
+.slogan {
+    width: 100%;
+    text-align: center;
+    padding: 4px 0;
+}
+
+.slogan p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.slogan p[lang="zh-Hant"] {
+    font-size: 0.95rem;
+    color: var(--text-light);
 }
 
 /* QR Code block */
