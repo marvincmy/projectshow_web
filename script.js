@@ -3,13 +3,18 @@ if (document.getElementById('startBtn')) {
     const startBtn = document.getElementById('startBtn');
     const demoBtn = document.getElementById('demoBtn');
     const websiteUrlInput = document.getElementById('websiteUrl');
+    const qrUrlInput = document.getElementById('qrUrl');
+
+    // Restore previously saved values
+    websiteUrlInput.value = sessionStorage.getItem('showcaseUrl') || 'https://example.com';
+    qrUrlInput.value = sessionStorage.getItem('qrUrl') || '';
 
     startBtn.addEventListener('click', () => {
         const url = websiteUrlInput.value.trim();
         if (url) {
             launchShowcase(url);
         } else {
-            alert('Please enter a valid URL');
+            alert('Please enter a valid project URL');
         }
     });
 
@@ -18,13 +23,21 @@ if (document.getElementById('startBtn')) {
     });
 
     websiteUrlInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            startBtn.click();
-        }
+        if (e.key === 'Enter') startBtn.click();
+    });
+
+    qrUrlInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') startBtn.click();
     });
 
     function launchShowcase(url) {
         sessionStorage.setItem('showcaseUrl', url);
+        const qrUrl = qrUrlInput.value.trim();
+        if (qrUrl) {
+            sessionStorage.setItem('qrUrl', qrUrl);
+        } else {
+            sessionStorage.setItem('qrUrl', url);
+        }
         window.location.href = 'showcase.html';
     }
 }
@@ -34,10 +47,11 @@ if (document.getElementById('demoIframe')) {
     const demoIframe = document.getElementById('demoIframe');
     const setupBtn = document.getElementById('setupBtn');
     const divider = document.getElementById('divider');
+    const qrImage = document.getElementById('qrImage');
 
     let isDraggingDivider = false;
 
-    // Load URL from session storage
+    // Load project URL
     const showcaseUrl = sessionStorage.getItem('showcaseUrl') || 'https://example.com';
     try {
         new URL(showcaseUrl);
@@ -47,9 +61,13 @@ if (document.getElementById('demoIframe')) {
         window.location.href = 'index.html';
     }
 
-    // (Setup) button — navigate back to start screen
+    // Generate QR code from stored URL
+    const qrUrl = sessionStorage.getItem('qrUrl') || showcaseUrl;
+    qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=6&data=${encodeURIComponent(qrUrl)}`;
+    qrImage.alt = 'QR Code for ' + qrUrl;
+
+    // Gear button — go back to setup screen
     setupBtn.addEventListener('click', () => {
-        sessionStorage.removeItem('showcaseUrl');
         window.location.href = 'index.html';
     });
 
@@ -63,7 +81,6 @@ if (document.getElementById('demoIframe')) {
         startLeftWidth = document.querySelector('.left-panel').offsetWidth;
         divider.classList.add('dragging');
         document.body.style.cursor = 'col-resize';
-        // Prevent the iframe from swallowing mouse events during drag
         demoIframe.style.pointerEvents = 'none';
         e.preventDefault();
     });
@@ -84,11 +101,8 @@ if (document.getElementById('demoIframe')) {
             newLeftWidth = wrapperWidth - minRightWidth;
         }
 
-        const leftPanel = document.querySelector('.left-panel');
-        const rightPanel = document.querySelector('.right-panel');
-
-        leftPanel.style.flex = `0 0 ${newLeftWidth}px`;
-        rightPanel.style.flex = `0 0 ${wrapperWidth - newLeftWidth - 4}px`;
+        document.querySelector('.left-panel').style.flex = `0 0 ${newLeftWidth}px`;
+        document.querySelector('.right-panel').style.flex = `0 0 ${wrapperWidth - newLeftWidth - 4}px`;
     });
 
     document.addEventListener('mouseup', () => {
