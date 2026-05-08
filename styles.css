@@ -452,8 +452,8 @@ body {
 
 .slogan p[lang="zh-Hant"] {
     font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--text-light);
+    font-weight: 600;
+    color: #0055b8;
 }
 
 /* QR Code block */
@@ -490,7 +490,7 @@ body {
 /* Scan text */
 .scan-text {
     text-align: center;
-    background: var(--accent-orange);
+    background: #374151;
     border-radius: 10px;
     padding: 8px 20px;
 }
