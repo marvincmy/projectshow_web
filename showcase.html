@@ -27,39 +27,78 @@
                     </span>
                 </div>
 
-                <div class="info-container">
+                <!-- Slides wrapper -->
+                <div class="slides-wrapper">
 
-                    <!-- Programme Name -->
-                    <div class="prog-name">
-                        <div class="course-code-badge">
-                            <span id="courseCodeDisplay"></span>
-                        </div>
-                        <p id="progNameEngDisplay"></p>
-                        <p id="progNameChiDisplay" lang="zh-Hant"></p>
-                    </div>
+                    <!-- Slide 1: Project & QR -->
+                    <div class="slide slide-1 active" id="slide1">
+                        <div class="info-container">
+                            <div class="prog-name">
+                                <div class="course-code-badge">
+                                    <span id="courseCodeDisplay"></span>
+                                </div>
+                                <p id="progNameEngDisplay"></p>
+                                <p id="progNameChiDisplay" lang="zh-Hant"></p>
+                            </div>
 
-                    <!-- QR Section: vertically centred in remaining space -->
-                    <div class="qr-section">
-                        <!-- Slogan -->
-                        <div class="slogan">
-                            <p id="sloganEngDisplay"></p>
-                            <p id="sloganChiDisplay" lang="zh-Hant"></p>
-                        </div>
-
-                        <!-- QR Code -->
-                        <div class="qr-block">
-                            <img id="qrImage" class="qr-image" src="" alt="QR Code">
-                        </div>
-
-                        <!-- Animated arrow pointing up toward QR -->
-                        <div class="qr-arrow">&#8679;</div>
-
-                        <!-- Scan text -->
-                        <div class="scan-text">
-                            <p>Scan and Bookmark Me</p>
-                            <p lang="zh-Hant">掃描並加入書籤吧</p>
+                            <div class="qr-section">
+                                <div class="slogan">
+                                    <p id="sloganEngDisplay"></p>
+                                    <p id="sloganChiDisplay" lang="zh-Hant"></p>
+                                </div>
+                                <div class="qr-block">
+                                    <img id="qrImage" class="qr-image" src="" alt="Project QR Code">
+                                </div>
+                                <div class="qr-arrow">&#8679;</div>
+                                <div class="scan-text">
+                                    <p>Scan and Bookmark Me</p>
+                                    <p lang="zh-Hant">掃描並加入書籤吧</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Slide 2: Programme Details -->
+                    <div class="slide slide-2" id="slide2">
+                        <div class="info-container info-container-2">
+
+                            <div class="prog-detail-block">
+                                <h3 class="detail-heading">
+                                    <span>Programme Description</span>
+                                    <span lang="zh-Hant">課程簡介</span>
+                                </h3>
+                                <p id="progDescEngDisplay" class="detail-text"></p>
+                                <p id="progDescChiDisplay" class="detail-text detail-text-chi" lang="zh-Hant"></p>
+                            </div>
+
+                            <div class="prog-detail-block">
+                                <h3 class="detail-heading">
+                                    <span>Major Subjects</span>
+                                    <span lang="zh-Hant">主要科目</span>
+                                </h3>
+                                <p id="majorSubjectsEngDisplay" class="detail-text"></p>
+                                <p id="majorSubjectsChiDisplay" class="detail-text detail-text-chi" lang="zh-Hant"></p>
+                            </div>
+
+                            <div class="qr-section qr-section-small">
+                                <div class="qr-block">
+                                    <img id="progQrImage" class="qr-image" src="" alt="Programme QR Code">
+                                </div>
+                                <div class="scan-text">
+                                    <p>Scan for Programme Info</p>
+                                    <p lang="zh-Hant">掃描了解更多課程資訊</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slide indicator dots -->
+                <div class="slide-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
                 </div>
             </div>
         </div>

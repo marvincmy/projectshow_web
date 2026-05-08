@@ -12,70 +12,95 @@
             <h1>Project Showcase</h1>
             <p class="subtitle">Configure your showcase display</p>
 
-            <div class="input-section">
-                <label for="websiteUrl">Project Website URL:</label>
-                <input
-                    type="url"
-                    id="websiteUrl"
-                    placeholder="https://example.com"
-                    value="https://example.com"
-                >
-                <small class="hint">URL of the project to display in the left panel (must support iframe embedding)</small>
+            <!-- Section 1: Project URLs -->
+            <div class="setup-section">
+                <h3 class="setup-section-title">Project</h3>
+
+                <div class="input-section">
+                    <label for="websiteUrl">Project Website URL:</label>
+                    <input type="url" id="websiteUrl"
+                        placeholder="https://example.com"
+                        value="https://example.com">
+                    <small class="hint">Displayed in the left panel (must support iframe)</small>
+                </div>
+
+                <div class="input-section">
+                    <label for="qrUrl">Project QR Code URL:</label>
+                    <input type="url" id="qrUrl"
+                        placeholder="https://your-project-link.com">
+                    <small class="hint">Defaults to the project URL above if left blank</small>
+                </div>
+
+                <div class="input-section">
+                    <label for="sloganEng">Slogan (Eng):</label>
+                    <input type="text" id="sloganEng"
+                        value="Interested in this project?">
+                </div>
+
+                <div class="input-section">
+                    <label for="sloganChi">Slogan (Chi):</label>
+                    <input type="text" id="sloganChi"
+                        value="對呢個作品有興趣？">
+                </div>
             </div>
 
-            <div class="input-section">
-                <label for="qrUrl">QR Code URL:</label>
-                <input
-                    type="url"
-                    id="qrUrl"
-                    placeholder="https://your-project-link.com"
-                >
-                <small class="hint">URL that visitors will open after scanning the QR code</small>
+            <!-- Section 2: Programme Info -->
+            <div class="setup-section">
+                <h3 class="setup-section-title">Programme Info</h3>
+
+                <div class="input-section">
+                    <label for="progNameEng">Programme Name (Eng):</label>
+                    <input type="text" id="progNameEng"
+                        value="HD in Applied AI">
+                </div>
+
+                <div class="input-section">
+                    <label for="progNameChi">Programme Name (Chi):</label>
+                    <input type="text" id="progNameChi"
+                        value="應用人工智能高級文憑">
+                </div>
+
+                <div class="input-section">
+                    <label for="courseCode">Course Code:</label>
+                    <input type="text" id="courseCode"
+                        value="IT114127">
+                </div>
             </div>
 
-            <div class="input-section">
-                <label for="progNameEng">Programme Name (Eng):</label>
-                <input
-                    type="text"
-                    id="progNameEng"
-                    value="HD in Applied AI"
-                >
-            </div>
+            <!-- Section 3: Programme Page -->
+            <div class="setup-section">
+                <h3 class="setup-section-title">Programme Page</h3>
 
-            <div class="input-section">
-                <label for="progNameChi">Programme Name (Chi):</label>
-                <input
-                    type="text"
-                    id="progNameChi"
-                    value="應用人工智能高級文憑"
-                >
-            </div>
+                <div class="input-section">
+                    <label for="progDescEng">Programme Description (Eng):</label>
+                    <textarea id="progDescEng" class="setup-textarea"
+                        placeholder="Enter programme description in English..."></textarea>
+                </div>
 
-            <div class="input-section">
-                <label for="courseCode">Course Code:</label>
-                <input
-                    type="text"
-                    id="courseCode"
-                    value="IT114127"
-                >
-            </div>
+                <div class="input-section">
+                    <label for="progDescChi">Programme Description (Chi):</label>
+                    <textarea id="progDescChi" class="setup-textarea"
+                        placeholder="輸入課程中文簡介..."></textarea>
+                </div>
 
-            <div class="input-section">
-                <label for="sloganEng">Slogan (Eng):</label>
-                <input
-                    type="text"
-                    id="sloganEng"
-                    value="Interested in this project?"
-                >
-            </div>
+                <div class="input-section">
+                    <label for="majorSubjectsEng">Major Subjects (Eng):</label>
+                    <textarea id="majorSubjectsEng" class="setup-textarea"
+                        placeholder="e.g. AI Fundamentals, Machine Learning, Data Science..."></textarea>
+                </div>
 
-            <div class="input-section">
-                <label for="sloganChi">Slogan (Chi):</label>
-                <input
-                    type="text"
-                    id="sloganChi"
-                    value="對呢個作品有興趣？"
-                >
+                <div class="input-section">
+                    <label for="majorSubjectsChi">Major Subjects (Chi):</label>
+                    <textarea id="majorSubjectsChi" class="setup-textarea"
+                        placeholder="例如：人工智能基礎、機器學習、數據科學..."></textarea>
+                </div>
+
+                <div class="input-section">
+                    <label for="progQrUrl">Programme QR Code URL:</label>
+                    <input type="url" id="progQrUrl"
+                        placeholder="https://hkiit.edu.hk/programme-page">
+                    <small class="hint">Link shown on the programme information slide</small>
+                </div>
             </div>
 
             <div class="button-group">
