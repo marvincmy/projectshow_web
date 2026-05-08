@@ -7,6 +7,8 @@
 :root {
     --primary-color: #3b82f6;
     --primary-dark: #1e40af;
+    --accent-pink: #e81f76;
+    --accent-pink-dark: #c01060;
     --secondary-color: #f59e0b;
     --bg-dark: #1f2937;
     --bg-light: #f3f4f6;
@@ -347,6 +349,66 @@ body {
     pointer-events: auto;
 }
 
+/* ===== ANIMATED BACKGROUND BLOBS ===== */
+.bg-waves {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bg-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.13;
+}
+
+.bg-blob.b1 {
+    width: 260px;
+    height: 260px;
+    background: var(--accent-pink);
+    top: -10%;
+    left: -20%;
+    animation: blobFloat1 11s ease-in-out infinite;
+}
+
+.bg-blob.b2 {
+    width: 200px;
+    height: 200px;
+    background: var(--primary-color);
+    top: 40%;
+    right: -15%;
+    animation: blobFloat2 14s ease-in-out infinite;
+}
+
+.bg-blob.b3 {
+    width: 220px;
+    height: 220px;
+    background: var(--accent-pink);
+    bottom: 5%;
+    left: 10%;
+    animation: blobFloat3 9s ease-in-out infinite;
+}
+
+@keyframes blobFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    40%       { transform: translate(40px, 30px) scale(1.12); }
+    70%       { transform: translate(-15px, 50px) scale(0.92); }
+}
+
+@keyframes blobFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    35%       { transform: translate(-35px, -25px) scale(1.08); }
+    65%       { transform: translate(20px, 40px) scale(0.95); }
+}
+
+@keyframes blobFloat3 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%       { transform: translate(30px, -35px) scale(1.1); }
+}
+
 /* Slide indicator dots — layout handled in lower block */
 
 .dot {
@@ -367,7 +429,9 @@ body {
     flex-direction: column;
     flex: 1;
     overflow: hidden;
-    background: linear-gradient(180deg, #ffffff 0%, #f0f6ff 100%);
+    background: rgba(255, 255, 255, 0.82);
+    position: relative;
+    z-index: 1;
 }
 
 /* Programme Name — top section */
@@ -492,13 +556,21 @@ body {
     color: rgba(255,255,255,0.85);
 }
 
+.scan-text-pink {
+    background: var(--accent-pink);
+}
+
+.scan-text-pink:hover {
+    background: var(--accent-pink-dark);
+}
+
 /* ===== SLIDE 2: PROGRAMME DETAILS ===== */
 .info-container-2 {
     gap: 12px;
     padding: 16px 18px 12px;
     overflow-y: auto;
     justify-content: flex-start;
-    background: linear-gradient(180deg, #ffffff 0%, #f0f6ff 100%);
+    background: rgba(255, 255, 255, 0.82);
 }
 
 .prog-detail-block {
