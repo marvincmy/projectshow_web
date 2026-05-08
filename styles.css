@@ -228,12 +228,16 @@ body {
 
 /* ===== PROGRAMME INFORMATION AREA ===== */
 .info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex: 1;
+    padding: 30px 20px;
 }
 
 .info-logo {
-    height: 40px;
-    width: auto;
+    max-width: 80%;
+    height: auto;
     object-fit: contain;
 }
 
