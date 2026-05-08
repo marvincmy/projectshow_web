@@ -110,6 +110,49 @@ if (document.getElementById('demoIframe')) {
     if (progQrSrc && progQrImage)  progQrImage.src  = progQrSrc;
     if (progQrSrc && progQrImage2) progQrImage2.src = progQrSrc;
 
+    // ===== WAVE CANVAS BACKGROUND =====
+    (function initWaves() {
+        const canvas = document.getElementById('bgCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        function resize() {
+            canvas.width  = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        const waves = [
+            { color: '#e81f76', amp: 28, freq: 0.011, phase: 0.0, speed: 0.007, yRatio: 0.15 },
+            { color: '#0055b8', amp: 38, freq: 0.007, phase: 1.6, speed: 0.004, yRatio: 0.32 },
+            { color: '#ff6b00', amp: 22, freq: 0.014, phase: 3.1, speed: 0.006, yRatio: 0.50 },
+            { color: '#e81f76', amp: 34, freq: 0.009, phase: 0.8, speed: 0.005, yRatio: 0.65 },
+            { color: '#0055b8', amp: 26, freq: 0.013, phase: 2.4, speed: 0.008, yRatio: 0.80 },
+            { color: '#ff6b00', amp: 18, freq: 0.018, phase: 4.2, speed: 0.003, yRatio: 0.92 },
+        ];
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            waves.forEach(w => {
+                ctx.beginPath();
+                ctx.strokeStyle = w.color;
+                ctx.lineWidth = 1.6;
+                ctx.globalAlpha = 0.16;
+                for (let x = 0; x <= canvas.width; x += 2) {
+                    const y = w.yRatio * canvas.height
+                            + Math.sin(x * w.freq + w.phase) * w.amp;
+                    x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+                }
+                ctx.stroke();
+                w.phase += w.speed;
+            });
+            ctx.globalAlpha = 1;
+            requestAnimationFrame(draw);
+        }
+        draw();
+    })();
+
     // ===== SLIDE ROTATION =====
     const slides = document.querySelectorAll('.slide');
     const dots   = document.querySelectorAll('.dot');
