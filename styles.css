@@ -425,10 +425,21 @@ body {
     color: #ffffff;
 }
 
-/* Slide 1 top block: title + students + supervisor + description */
+/* Slide 1 inner container: cards stacked with scroll */
+#slide1 .info-container {
+    gap: 10px;
+    padding: 12px 14px;
+    overflow-y: auto;
+    justify-content: flex-start;
+}
+
+/* Slide 1 top block: title + students + supervisor (card style from prog-detail-block) */
 .proj-top-block {
-    padding: 16px 18px 12px;
-    border-bottom: 1px solid rgba(0, 85, 184, 0.1);
+    /* inherits prog-detail-block card style */
+}
+
+.proj-desc-block {
+    /* inherits prog-detail-block card style */
 }
 
 .proj-title-eng {

@@ -126,10 +126,11 @@ if (document.getElementById('demoIframe')) {
         supervisorDisplay.style.display = sup ? '' : 'none';
     }
     const projDescDisplay = document.getElementById('projDescDisplay');
+    const projDescCard    = document.getElementById('projDescCard');
     if (projDescDisplay) {
         const desc = get('projDesc');
         projDescDisplay.textContent = desc;
-        projDescDisplay.style.display = desc ? '' : 'none';
+        if (projDescCard) projDescCard.style.display = desc ? '' : 'none';
     }
 
     progNameEngDisplay.textContent = get('progNameEng', 'HD in Applied AI');
