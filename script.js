@@ -126,10 +126,10 @@ if (document.getElementById('demoIframe')) {
         const waves = [
             { color: '#e81f76', amp: 28, freq: 0.011, phase: 0.0, speed: 0.007, yRatio: 0.15 },
             { color: '#0055b8', amp: 38, freq: 0.007, phase: 1.6, speed: 0.004, yRatio: 0.32 },
-            { color: '#eec317', amp: 22, freq: 0.014, phase: 3.1, speed: 0.006, yRatio: 0.50 },
+            { color: '#ffc410', amp: 22, freq: 0.014, phase: 3.1, speed: 0.006, yRatio: 0.50 },
             { color: '#e81f76', amp: 34, freq: 0.009, phase: 0.8, speed: 0.005, yRatio: 0.65 },
             { color: '#0055b8', amp: 26, freq: 0.013, phase: 2.4, speed: 0.008, yRatio: 0.80 },
-            { color: '#eec317', amp: 18, freq: 0.018, phase: 4.2, speed: 0.003, yRatio: 0.92 },
+            { color: '#ffc410', amp: 18, freq: 0.018, phase: 4.2, speed: 0.003, yRatio: 0.92 },
         ];
 
         function draw() {

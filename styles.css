@@ -9,8 +9,8 @@
     --primary-dark: #1e40af;
     --accent-pink: #e81f76;
     --accent-pink-dark: #c01060;
-    --accent-orange: #eec317;
-    --accent-orange-dark: #d4ae0f;
+    --accent-orange: #ffc410;
+    --accent-orange-dark: #e6b00e;
     --secondary-color: #f59e0b;
     --bg-dark: #1f2937;
     --bg-light: #f3f4f6;
@@ -314,7 +314,7 @@ body {
 }
 
 .persistent-info p:first-of-type {
-    font-size: 1.7rem;
+    font-size: 1.45rem;
     font-weight: 800;
     color: var(--text-dark);
     line-height: 1.25;
@@ -322,8 +322,8 @@ body {
 }
 
 .persistent-info p[lang="zh-Hant"] {
-    font-size: 1.05rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 700;
     color: var(--text-light);
     margin-top: 2px;
 }
@@ -420,7 +420,7 @@ body {
 }
 
 .course-code-badge span {
-    font-size: 0.82rem;
+    font-size: 1rem;
     font-weight: 700;
     color: #ffffff;
 }
