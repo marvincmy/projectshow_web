@@ -243,6 +243,26 @@ body {
     object-fit: contain;
 }
 
+/* Programme Name */
+.prog-name {
+    width: 100%;
+    padding: 10px 0 4px;
+    border-top: 1px solid var(--border-color);
+}
+
+.prog-name p {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.5;
+}
+
+.prog-name p[lang="zh-Hant"] {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
 /* QR Code block */
 .qr-block {
     align-self: center;

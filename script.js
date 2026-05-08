@@ -4,10 +4,14 @@ if (document.getElementById('startBtn')) {
     const demoBtn = document.getElementById('demoBtn');
     const websiteUrlInput = document.getElementById('websiteUrl');
     const qrUrlInput = document.getElementById('qrUrl');
+    const progNameEngInput = document.getElementById('progNameEng');
+    const progNameChiInput = document.getElementById('progNameChi');
 
     // Restore previously saved values
     websiteUrlInput.value = sessionStorage.getItem('showcaseUrl') || 'https://example.com';
     qrUrlInput.value = sessionStorage.getItem('qrUrl') || '';
+    if (sessionStorage.getItem('progNameEng')) progNameEngInput.value = sessionStorage.getItem('progNameEng');
+    if (sessionStorage.getItem('progNameChi')) progNameChiInput.value = sessionStorage.getItem('progNameChi');
 
     startBtn.addEventListener('click', () => {
         const url = websiteUrlInput.value.trim();
@@ -33,11 +37,9 @@ if (document.getElementById('startBtn')) {
     function launchShowcase(url) {
         sessionStorage.setItem('showcaseUrl', url);
         const qrUrl = qrUrlInput.value.trim();
-        if (qrUrl) {
-            sessionStorage.setItem('qrUrl', qrUrl);
-        } else {
-            sessionStorage.setItem('qrUrl', url);
-        }
+        sessionStorage.setItem('qrUrl', qrUrl || url);
+        sessionStorage.setItem('progNameEng', progNameEngInput.value.trim() || 'HD in Applied AI');
+        sessionStorage.setItem('progNameChi', progNameChiInput.value.trim() || '應用人工智能高級文憑');
         window.location.href = 'showcase.html';
     }
 }
@@ -48,6 +50,8 @@ if (document.getElementById('demoIframe')) {
     const setupBtn = document.getElementById('setupBtn');
     const divider = document.getElementById('divider');
     const qrImage = document.getElementById('qrImage');
+    const progNameEngDisplay = document.getElementById('progNameEngDisplay');
+    const progNameChiDisplay = document.getElementById('progNameChiDisplay');
 
     let isDraggingDivider = false;
 
@@ -60,6 +64,10 @@ if (document.getElementById('demoIframe')) {
         alert('Invalid URL: ' + e.message);
         window.location.href = 'index.html';
     }
+
+    // Programme names
+    progNameEngDisplay.textContent = sessionStorage.getItem('progNameEng') || 'HD in Applied AI';
+    progNameChiDisplay.textContent = sessionStorage.getItem('progNameChi') || '應用人工智能高級文憑';
 
     // Generate QR code from stored URL
     const qrUrl = sessionStorage.getItem('qrUrl') || showcaseUrl;
