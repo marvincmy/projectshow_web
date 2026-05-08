@@ -480,20 +480,23 @@ body {
 
 /* QR Code block */
 .qr-block {
-    filter: drop-shadow(0 4px 16px rgba(59, 130, 246, 0.18));
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 14px;
+    box-shadow: 0 6px 24px rgba(59, 130, 246, 0.15), 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .qr-image {
-    width: 175px;
-    height: 175px;
-    border-radius: 12px;
+    width: 210px;
+    height: 210px;
+    border-radius: 10px;
     background: #ffffff;
     display: block;
 }
 
 .qr-image-lg {
-    width: 200px;
-    height: 200px;
+    width: 210px;
+    height: 210px;
 }
 
 /* Animated arrow pointing up at QR */

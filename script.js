@@ -107,7 +107,7 @@ if (document.getElementById('demoIframe')) {
     sloganEngDisplay.textContent   = get('sloganEng', 'Interested in this project?');
     sloganChiDisplay.textContent   = get('sloganChi', '對呢個作品有興趣？');
     const qrUrl = get('qrUrl', showcaseUrl);
-    qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=175x175&margin=6&data=${encodeURIComponent(qrUrl)}`;
+    qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=210x210&margin=6&data=${encodeURIComponent(qrUrl)}`;
 
     // Populate slides 2 & 3 (Eng + Chi programme details)
     if (progDescEngDisplay)  progDescEngDisplay.textContent  = get('progDescEng');
@@ -116,7 +116,7 @@ if (document.getElementById('demoIframe')) {
     if (majorChiDisplay)     majorChiDisplay.textContent     = get('majorSubjectsChi');
     const progQrUrl = get('progQrUrl');
     const progQrSrc = progQrUrl
-        ? `https://api.qrserver.com/v1/create-qr-code/?size=175x175&margin=6&data=${encodeURIComponent(progQrUrl)}`
+        ? `https://api.qrserver.com/v1/create-qr-code/?size=210x210&margin=6&data=${encodeURIComponent(progQrUrl)}`
         : '';
     if (progQrSrc && progQrImage)  progQrImage.src  = progQrSrc;
     if (progQrSrc && progQrImage2) progQrImage2.src = progQrSrc;
