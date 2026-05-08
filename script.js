@@ -19,6 +19,8 @@ if (document.getElementById('startBtn')) {
     const progDescChiInput= document.getElementById('progDescChi');
     const majorEngInput   = document.getElementById('majorSubjectsEng');
     const majorChiInput   = document.getElementById('majorSubjectsChi');
+    const careerOppEngInput = document.getElementById('careerOppEng');
+    const careerOppChiInput = document.getElementById('careerOppChi');
     const progQrInput     = document.getElementById('progQrUrl');
 
     // Restore saved values
@@ -45,9 +47,11 @@ if (document.getElementById('startBtn')) {
     restore(courseCodeInput, 'courseCode',    'IT114127');
     restore(progDescEngInput,'progDescEng');
     restore(progDescChiInput,'progDescChi');
-    restore(majorEngInput,   'majorSubjectsEng');
-    restore(majorChiInput,   'majorSubjectsChi');
-    restore(progQrInput,     'progQrUrl');
+    restore(majorEngInput,      'majorSubjectsEng');
+    restore(majorChiInput,      'majorSubjectsChi');
+    restore(careerOppEngInput,  'careerOppEng');
+    restore(careerOppChiInput,  'careerOppChi');
+    restore(progQrInput,        'progQrUrl');
 
     function saveAndLaunch(url) {
         localStorage.setItem('projTitleEng',     projTitleEngInput.value.trim() || 'Smart Trash Scanner');
@@ -67,6 +71,8 @@ if (document.getElementById('startBtn')) {
         localStorage.setItem('progDescChi',      progDescChiInput.value.trim());
         localStorage.setItem('majorSubjectsEng', majorEngInput.value.trim());
         localStorage.setItem('majorSubjectsChi', majorChiInput.value.trim());
+        localStorage.setItem('careerOppEng',     careerOppEngInput ? careerOppEngInput.value.trim() : '');
+        localStorage.setItem('careerOppChi',     careerOppChiInput ? careerOppChiInput.value.trim() : '');
         localStorage.setItem('progQrUrl',        progQrInput.value.trim());
         window.location.href = 'showcase.html';
     }
@@ -152,6 +158,17 @@ if (document.getElementById('demoIframe')) {
     if (progDescChiDisplay)  progDescChiDisplay.textContent  = get('progDescChi');
     if (majorEngDisplay)     majorEngDisplay.textContent     = get('majorSubjectsEng');
     if (majorChiDisplay)     majorChiDisplay.textContent     = get('majorSubjectsChi');
+
+    const careerOppEngDisplay = document.getElementById('careerOppEngDisplay');
+    const careerOppChiDisplay = document.getElementById('careerOppChiDisplay');
+    const careerOppEngCard    = document.getElementById('careerOppEngCard');
+    const careerOppChiCard    = document.getElementById('careerOppChiCard');
+    const careerEng = get('careerOppEng');
+    const careerChi = get('careerOppChi');
+    if (careerOppEngDisplay) careerOppEngDisplay.textContent = careerEng;
+    if (careerOppEngCard)    careerOppEngCard.style.display  = careerEng ? '' : 'none';
+    if (careerOppChiDisplay) careerOppChiDisplay.textContent = careerChi;
+    if (careerOppChiCard)    careerOppChiCard.style.display  = careerChi ? '' : 'none';
     const progQrUrl = get('progQrUrl');
     const progQrSrc = progQrUrl
         ? `https://api.qrserver.com/v1/create-qr-code/?size=210x210&margin=6&data=${encodeURIComponent(progQrUrl)}`
