@@ -80,7 +80,7 @@ if (document.getElementById('demoIframe')) {
     // Programme names
     progNameEngDisplay.textContent = sessionStorage.getItem('progNameEng') || 'HD in Applied AI';
     progNameChiDisplay.textContent = sessionStorage.getItem('progNameChi') || '應用人工智能高級文憑';
-    courseCodeDisplay.textContent = sessionStorage.getItem('courseCode') || 'IT114127';
+    if (courseCodeDisplay) courseCodeDisplay.textContent = sessionStorage.getItem('courseCode') || 'IT114127';
     sloganEngDisplay.textContent = sessionStorage.getItem('sloganEng') || 'Interested in this project?';
     sloganChiDisplay.textContent = sessionStorage.getItem('sloganChi') || '對呢個作品有興趣？';
 
