@@ -427,9 +427,13 @@ body {
 
 /* Project Title — Slide 1 */
 .project-title {
-    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 22px 16px 20px;
+    padding: 0 16px;
 }
 
 .project-title p:first-child {
@@ -447,7 +451,7 @@ body {
     line-height: 1.5;
 }
 
-/* QR Section — fills remaining space, vertically centred */
+/* QR Section — takes equal half, vertically centred */
 .qr-section {
     flex: 1;
     display: flex;
@@ -455,7 +459,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 0 20px 20px;
+    padding: 0 20px 16px;
 }
 
 /* Slogan */
