@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase - Advertisement Display</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="start-screen">
+        <div class="start-container">
+            <h1>Project Showcase</h1>
+            <p class="subtitle">Display your website alongside advertisements</p>
+            
+            <div class="input-section">
+                <label for="websiteUrl">Enter Website URL:</label>
+                <input 
+                    type="url" 
+                    id="websiteUrl" 
+                    placeholder="https://example.com"
+                    value="https://example.com"
+                >
+                <small class="hint">Enter the full URL of the website you want to display (must support iframe embedding)</small>
+            </div>
+
+            <div class="button-group">
+                <button id="startBtn" class="btn btn-primary">Start Showcase</button>
+                <button id="demoBtn" class="btn btn-secondary">Try Demo</button>
+            </div>
+
+            <div class="info-box">
+                <h3>Features:</h3>
+                <ul>
+                    <li>📱 Adjustable split screen layout</li>
+                    <li>🎨 Dynamic advertisement rotation</li>
+                    <li>⚙️ Resizable divider between panels</li>
+                    <li>🔄 Easy website switching</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
