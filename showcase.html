@@ -44,21 +44,22 @@
                     <!-- Animated wave canvas background -->
                     <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
 
-                    <!-- Slide 1: Project Title + Slogan + Project QR -->
+                    <!-- Slide 1: Project info (top) + QR section (bottom) -->
                     <div class="slide active" id="slide1">
                         <div class="info-container">
-                            <!-- Project Title — pinned near top -->
-                            <div class="project-title">
-                                <p id="projTitleEngDisplay"></p>
-                                <p id="projTitleChiDisplay" lang="zh-Hant"></p>
-                            </div>
 
-                            <!-- Team info: student names + supervisor -->
-                            <div class="team-info">
+                            <!-- Top block: title, students, supervisor, description -->
+                            <div class="proj-top-block">
+                                <p id="projTitleEngDisplay" class="proj-title-eng"></p>
+                                <p id="projTitleChiDisplay" class="proj-title-chi" lang="zh-Hant"></p>
+
                                 <div id="studentNamesDisplay" class="team-students"></div>
                                 <p id="supervisorDisplay" class="team-supervisor"></p>
+
+                                <p id="projDescDisplay" class="proj-desc"></p>
                             </div>
 
+                            <!-- Bottom: slogan, QR, arrow, scan -->
                             <div class="qr-section">
                                 <div class="slogan">
                                     <p id="sloganEngDisplay"></p>
@@ -73,6 +74,7 @@
                                     <p lang="zh-Hant">掃描並加入書籤吧</p>
                                 </div>
                             </div>
+
                         </div>
                     </div>
 

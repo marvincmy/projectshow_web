@@ -10,6 +10,7 @@ if (document.getElementById('startBtn')) {
     const projTitleChiInput  = document.getElementById('projTitleChi');
     const studentNamesInput  = document.getElementById('studentNames');
     const supervisorInput    = document.getElementById('supervisorName');
+    const projDescInput      = document.getElementById('projDesc');
     const progNameEngInput= document.getElementById('progNameEng');
     const progNameChiInput= document.getElementById('progNameChi');
     const courseCodeInput = document.getElementById('courseCode');
@@ -29,6 +30,7 @@ if (document.getElementById('startBtn')) {
     restore(projTitleChiInput, 'projTitleChi', '關於將垃圾擺喺鏡頭前面就會話你知點掉嘅神奇網頁');
     restore(studentNamesInput, 'studentNames');
     restore(supervisorInput,   'supervisorName');
+    restore(projDescInput,     'projDesc');
     restore(websiteUrlInput, 'showcaseUrl',   'https://example.com');
     restore(qrUrlInput,      'qrUrl');
     restore(sloganEngInput,  'sloganEng',     'Interested in this project?');
@@ -47,6 +49,7 @@ if (document.getElementById('startBtn')) {
         localStorage.setItem('projTitleChi',     projTitleChiInput.value.trim() || '關於將垃圾擺喺鏡頭前面就會話你知點掉嘅神奇網頁');
         localStorage.setItem('studentNames',     studentNamesInput.value.trim());
         localStorage.setItem('supervisorName',   supervisorInput.value.trim());
+        localStorage.setItem('projDesc',         projDescInput.value.trim());
         localStorage.setItem('showcaseUrl',      url);
         localStorage.setItem('qrUrl',            qrUrlInput.value.trim() || url);
         localStorage.setItem('sloganEng',        sloganEngInput.value.trim()   || 'Interested in this project?');
@@ -121,6 +124,12 @@ if (document.getElementById('demoIframe')) {
         const sup = get('supervisorName');
         supervisorDisplay.textContent = sup;
         supervisorDisplay.style.display = sup ? '' : 'none';
+    }
+    const projDescDisplay = document.getElementById('projDescDisplay');
+    if (projDescDisplay) {
+        const desc = get('projDesc');
+        projDescDisplay.textContent = desc;
+        projDescDisplay.style.display = desc ? '' : 'none';
     }
 
     progNameEngDisplay.textContent = get('progNameEng', 'HD in Applied AI');
