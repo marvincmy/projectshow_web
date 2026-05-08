@@ -19,7 +19,7 @@ if (document.getElementById('startBtn')) {
 
     // Restore saved values
     const restore = (el, key, fallback = '') => {
-        const v = sessionStorage.getItem(key);
+        const v = localStorage.getItem(key);
         if (v !== null) el.value = v;
         else if (fallback) el.value = fallback;
     };
@@ -39,20 +39,20 @@ if (document.getElementById('startBtn')) {
     restore(progQrInput,     'progQrUrl');
 
     function saveAndLaunch(url) {
-        sessionStorage.setItem('projTitleEng',     projTitleEngInput.value.trim() || 'Smart Trash Scanner');
-        sessionStorage.setItem('projTitleChi',     projTitleChiInput.value.trim() || '關於將垃圾擺喺鏡頭前面就會話你知點掉嘅神奇網頁');
-        sessionStorage.setItem('showcaseUrl',      url);
-        sessionStorage.setItem('qrUrl',            qrUrlInput.value.trim() || url);
-        sessionStorage.setItem('sloganEng',        sloganEngInput.value.trim()   || 'Interested in this project?');
-        sessionStorage.setItem('sloganChi',        sloganChiInput.value.trim()   || '對呢個作品有興趣？');
-        sessionStorage.setItem('progNameEng',      progNameEngInput.value.trim() || 'HD in Applied AI');
-        sessionStorage.setItem('progNameChi',      progNameChiInput.value.trim() || '應用人工智能高級文憑');
-        sessionStorage.setItem('courseCode',       courseCodeInput.value.trim()  || 'IT114127');
-        sessionStorage.setItem('progDescEng',      progDescEngInput.value.trim());
-        sessionStorage.setItem('progDescChi',      progDescChiInput.value.trim());
-        sessionStorage.setItem('majorSubjectsEng', majorEngInput.value.trim());
-        sessionStorage.setItem('majorSubjectsChi', majorChiInput.value.trim());
-        sessionStorage.setItem('progQrUrl',        progQrInput.value.trim());
+        localStorage.setItem('projTitleEng',     projTitleEngInput.value.trim() || 'Smart Trash Scanner');
+        localStorage.setItem('projTitleChi',     projTitleChiInput.value.trim() || '關於將垃圾擺喺鏡頭前面就會話你知點掉嘅神奇網頁');
+        localStorage.setItem('showcaseUrl',      url);
+        localStorage.setItem('qrUrl',            qrUrlInput.value.trim() || url);
+        localStorage.setItem('sloganEng',        sloganEngInput.value.trim()   || 'Interested in this project?');
+        localStorage.setItem('sloganChi',        sloganChiInput.value.trim()   || '對呢個作品有興趣？');
+        localStorage.setItem('progNameEng',      progNameEngInput.value.trim() || 'HD in Applied AI');
+        localStorage.setItem('progNameChi',      progNameChiInput.value.trim() || '應用人工智能高級文憑');
+        localStorage.setItem('courseCode',       courseCodeInput.value.trim()  || 'IT114127');
+        localStorage.setItem('progDescEng',      progDescEngInput.value.trim());
+        localStorage.setItem('progDescChi',      progDescChiInput.value.trim());
+        localStorage.setItem('majorSubjectsEng', majorEngInput.value.trim());
+        localStorage.setItem('majorSubjectsChi', majorChiInput.value.trim());
+        localStorage.setItem('progQrUrl',        progQrInput.value.trim());
         window.location.href = 'showcase.html';
     }
 
@@ -88,7 +88,7 @@ if (document.getElementById('demoIframe')) {
     const majorEngDisplay      = document.getElementById('majorSubjectsEngDisplay');
     const majorChiDisplay      = document.getElementById('majorSubjectsChiDisplay');
 
-    const get = (key, fallback = '') => sessionStorage.getItem(key) || fallback;
+    const get = (key, fallback = '') => localStorage.getItem(key) || fallback;
 
     // Load iframe
     const showcaseUrl = get('showcaseUrl', 'https://example.com');
