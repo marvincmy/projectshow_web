@@ -11,6 +11,7 @@ if (document.getElementById('startBtn')) {
     const studentNamesInput  = document.getElementById('studentNames');
     const supervisorInput    = document.getElementById('supervisorName');
     const projDescInput      = document.getElementById('projDesc');
+    const showSlide1Toggle   = document.getElementById('showSlide1');
     const progNameEngInput= document.getElementById('progNameEng');
     const progNameChiInput= document.getElementById('progNameChi');
     const courseCodeInput = document.getElementById('courseCode');
@@ -31,6 +32,10 @@ if (document.getElementById('startBtn')) {
     restore(studentNamesInput, 'studentNames');
     restore(supervisorInput,   'supervisorName');
     restore(projDescInput,     'projDesc');
+    if (showSlide1Toggle) {
+        const saved = localStorage.getItem('showSlide1');
+        showSlide1Toggle.checked = saved === null ? true : saved === 'true';
+    }
     restore(websiteUrlInput, 'showcaseUrl',   'https://example.com');
     restore(qrUrlInput,      'qrUrl');
     restore(sloganEngInput,  'sloganEng',     'Interested in this project?');
@@ -50,6 +55,7 @@ if (document.getElementById('startBtn')) {
         localStorage.setItem('studentNames',     studentNamesInput.value.trim());
         localStorage.setItem('supervisorName',   supervisorInput.value.trim());
         localStorage.setItem('projDesc',         projDescInput.value.trim());
+        localStorage.setItem('showSlide1',       showSlide1Toggle ? showSlide1Toggle.checked : true);
         localStorage.setItem('showcaseUrl',      url);
         localStorage.setItem('qrUrl',            qrUrlInput.value.trim() || url);
         localStorage.setItem('sloganEng',        sloganEngInput.value.trim()   || 'Interested in this project?');
@@ -197,11 +203,33 @@ if (document.getElementById('demoIframe')) {
     })();
 
     // ===== SLIDE ROTATION =====
-    const slides = document.querySelectorAll('.slide');
-    const dots   = document.querySelectorAll('.dot');
+    // Hide slide 1 if the toggle was turned off in setup
+    const slide1El = document.getElementById('slide1');
+    const showSlide1 = localStorage.getItem('showSlide1') !== 'false';
+    if (slide1El && !showSlide1) {
+        slide1El.style.display = 'none';
+    }
+
+    // Build active slides/dots arrays based on visibility
+    const allSlides = Array.from(document.querySelectorAll('.slide'));
+    const allDots   = Array.from(document.querySelectorAll('.dot'));
+    const slides = allSlides.filter(s => s.style.display !== 'none');
+    const dots   = allDots.filter((_, i) => allSlides[i] && allSlides[i].style.display !== 'none');
+
+    // Hide dots for hidden slides
+    allDots.forEach((dot, i) => {
+        if (allSlides[i] && allSlides[i].style.display === 'none') dot.style.display = 'none';
+    });
+
     let currentSlide = 0;
     let isPaused = false;
     let slideTimer = null;
+
+    // Initialise first visible slide
+    allSlides.forEach(s => s.classList.remove('active'));
+    allDots.forEach(d => d.classList.remove('active'));
+    if (slides[0]) slides[0].classList.add('active');
+    if (dots[0])   dots[0].classList.add('active');
 
     function goToSlide(index) {
         slides[currentSlide].classList.remove('active');
@@ -221,9 +249,9 @@ if (document.getElementById('demoIframe')) {
     startTimer();
 
     // Dot click — hold for 20s before next auto-advance
-    dots.forEach(dot =>
+    dots.forEach((dot, i) =>
         dot.addEventListener('click', () => {
-            goToSlide(parseInt(dot.dataset.slide));
+            goToSlide(i);
             startTimer(20000);
         })
     );
