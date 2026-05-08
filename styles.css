@@ -202,6 +202,18 @@ body {
 }
 
 .panel-header-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.panel-header-title .title-chi {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.panel-header-title .title-eng {
     font-weight: 700;
     font-size: 1rem;
     color: var(--text-dark);
@@ -243,7 +255,7 @@ body {
 }
 
 .info-logo {
-    height: 180px;
+    height: 126px;
     width: auto;
     object-fit: contain;
 }
@@ -251,8 +263,7 @@ body {
 /* Programme Name */
 .prog-name {
     width: 100%;
-    padding: 10px 0 4px;
-    border-top: 1px solid var(--border-color);
+    padding: 4px 0;
 }
 
 .prog-name p {
@@ -266,6 +277,13 @@ body {
     font-size: 0.95rem;
     font-weight: 600;
     color: var(--text-light);
+}
+
+.course-code {
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    color: var(--text-light) !important;
+    margin-top: 2px;
 }
 
 /* QR Code block */

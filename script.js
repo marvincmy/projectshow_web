@@ -6,12 +6,14 @@ if (document.getElementById('startBtn')) {
     const qrUrlInput = document.getElementById('qrUrl');
     const progNameEngInput = document.getElementById('progNameEng');
     const progNameChiInput = document.getElementById('progNameChi');
+    const courseCodeInput = document.getElementById('courseCode');
 
     // Restore previously saved values
     websiteUrlInput.value = sessionStorage.getItem('showcaseUrl') || 'https://example.com';
     qrUrlInput.value = sessionStorage.getItem('qrUrl') || '';
     if (sessionStorage.getItem('progNameEng')) progNameEngInput.value = sessionStorage.getItem('progNameEng');
     if (sessionStorage.getItem('progNameChi')) progNameChiInput.value = sessionStorage.getItem('progNameChi');
+    if (sessionStorage.getItem('courseCode')) courseCodeInput.value = sessionStorage.getItem('courseCode');
 
     startBtn.addEventListener('click', () => {
         const url = websiteUrlInput.value.trim();
@@ -40,6 +42,7 @@ if (document.getElementById('startBtn')) {
         sessionStorage.setItem('qrUrl', qrUrl || url);
         sessionStorage.setItem('progNameEng', progNameEngInput.value.trim() || 'HD in Applied AI');
         sessionStorage.setItem('progNameChi', progNameChiInput.value.trim() || '應用人工智能高級文憑');
+        sessionStorage.setItem('courseCode', courseCodeInput.value.trim() || 'IT114127');
         window.location.href = 'showcase.html';
     }
 }
@@ -52,6 +55,7 @@ if (document.getElementById('demoIframe')) {
     const qrImage = document.getElementById('qrImage');
     const progNameEngDisplay = document.getElementById('progNameEngDisplay');
     const progNameChiDisplay = document.getElementById('progNameChiDisplay');
+    const courseCodeDisplay = document.getElementById('courseCodeDisplay');
 
     let isDraggingDivider = false;
 
@@ -68,6 +72,7 @@ if (document.getElementById('demoIframe')) {
     // Programme names
     progNameEngDisplay.textContent = sessionStorage.getItem('progNameEng') || 'HD in Applied AI';
     progNameChiDisplay.textContent = sessionStorage.getItem('progNameChi') || '應用人工智能高級文憑';
+    courseCodeDisplay.textContent = sessionStorage.getItem('courseCode') || 'IT114127';
 
     // Generate QR code from stored URL
     const qrUrl = sessionStorage.getItem('qrUrl') || showcaseUrl;
