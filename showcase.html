@@ -19,6 +19,8 @@
 
             <!-- Right Panel: Programme Information -->
             <div class="panel right-panel">
+
+                <!-- Top: Logo + title -->
                 <div class="panel-header">
                     <img src="assets/hkiit_logo.png" class="info-logo" alt="HKIIT Logo">
                     <span class="panel-header-title">
@@ -27,20 +29,21 @@
                     </span>
                 </div>
 
+                <!-- Persistent: Programme code + name (shown on every slide) -->
+                <div class="persistent-info">
+                    <div class="course-code-badge">
+                        <span id="courseCodeDisplay"></span>
+                    </div>
+                    <p id="progNameEngDisplay"></p>
+                    <p id="progNameChiDisplay" lang="zh-Hant"></p>
+                </div>
+
                 <!-- Slides wrapper -->
                 <div class="slides-wrapper">
 
-                    <!-- Slide 1: Project & QR -->
-                    <div class="slide slide-1 active" id="slide1">
+                    <!-- Slide 1: Slogan + Project QR -->
+                    <div class="slide active" id="slide1">
                         <div class="info-container">
-                            <div class="prog-name">
-                                <div class="course-code-badge">
-                                    <span id="courseCodeDisplay"></span>
-                                </div>
-                                <p id="progNameEngDisplay"></p>
-                                <p id="progNameChiDisplay" lang="zh-Hant"></p>
-                            </div>
-
                             <div class="qr-section">
                                 <div class="slogan">
                                     <p id="sloganEngDisplay"></p>
@@ -58,8 +61,8 @@
                         </div>
                     </div>
 
-                    <!-- Slide 2: Programme Details -->
-                    <div class="slide slide-2" id="slide2">
+                    <!-- Slide 2: Programme Details + Programme QR -->
+                    <div class="slide" id="slide2">
                         <div class="info-container info-container-2">
 
                             <div class="prog-detail-block">
@@ -93,13 +96,47 @@
                         </div>
                     </div>
 
+                    <!-- Slide 3: Project QR + Programme Info Eng + Chi -->
+                    <div class="slide" id="slide3">
+                        <div class="info-container info-container-2">
+
+                            <div class="qr-section qr-section-small">
+                                <div class="qr-block">
+                                    <img id="qrImage2" class="qr-image qr-image-lg" src="" alt="Project QR Code">
+                                </div>
+                                <div class="scan-text">
+                                    <p>Scan and Visit Our Project</p>
+                                    <p lang="zh-Hant">掃描瀏覽我們的作品</p>
+                                </div>
+                            </div>
+
+                            <div class="prog-detail-block">
+                                <h3 class="detail-heading">
+                                    <span>About This Programme</span>
+                                    <span lang="zh-Hant">關於此課程</span>
+                                </h3>
+                                <p id="progDescEngDisplay2" class="detail-text"></p>
+                            </div>
+
+                            <div class="prog-detail-block">
+                                <h3 class="detail-heading">
+                                    <span lang="zh-Hant">課程簡介</span>
+                                </h3>
+                                <p id="progDescChiDisplay2" class="detail-text" lang="zh-Hant"></p>
+                            </div>
+
+                        </div>
+                    </div>
+
                 </div>
 
                 <!-- Slide indicator dots -->
                 <div class="slide-dots">
                     <span class="dot active" data-slide="0"></span>
                     <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
                 </div>
+
             </div>
         </div>
     </div>

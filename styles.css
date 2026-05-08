@@ -298,6 +298,32 @@ body {
     object-fit: contain;
 }
 
+/* Persistent programme name bar (shown across all slides) */
+.persistent-info {
+    padding: 12px 18px 10px;
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.persistent-info .course-code-badge {
+    margin-bottom: 6px;
+}
+
+.persistent-info p:first-of-type {
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+}
+
+.persistent-info p[lang="zh-Hant"] {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-top: 2px;
+}
+
 /* Slides wrapper */
 .slides-wrapper {
     flex: 1;
@@ -433,6 +459,11 @@ body {
     border-radius: 12px;
     background: #ffffff;
     display: block;
+}
+
+.qr-image-lg {
+    width: 200px;
+    height: 200px;
 }
 
 /* Animated arrow pointing up at QR */

@@ -79,6 +79,9 @@ if (document.getElementById('demoIframe')) {
     const progDescChiDisplay   = document.getElementById('progDescChiDisplay');
     const majorEngDisplay      = document.getElementById('majorSubjectsEngDisplay');
     const majorChiDisplay      = document.getElementById('majorSubjectsChiDisplay');
+    const progDescEngDisplay2  = document.getElementById('progDescEngDisplay2');
+    const progDescChiDisplay2  = document.getElementById('progDescChiDisplay2');
+    const qrImage2             = document.getElementById('qrImage2');
 
     const get = (key, fallback = '') => sessionStorage.getItem(key) || fallback;
 
@@ -106,6 +109,11 @@ if (document.getElementById('demoIframe')) {
         progQrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=175x175&margin=6&data=${encodeURIComponent(progQrUrl)}`;
     }
 
+    // Slide 3: reuse project QR + programme description
+    if (qrImage2) qrImage2.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=6&data=${encodeURIComponent(qrUrl)}`;
+    if (progDescEngDisplay2) progDescEngDisplay2.textContent = get('progDescEng');
+    if (progDescChiDisplay2) progDescChiDisplay2.textContent = get('progDescChi');
+
     // ===== SLIDE ROTATION =====
     const slides = document.querySelectorAll('.slide');
     const dots   = document.querySelectorAll('.dot');
@@ -126,8 +134,8 @@ if (document.getElementById('demoIframe')) {
         })
     );
 
-    let slideTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 5000);
-    function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 5000); }
+    let slideTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 10000);
+    function resetTimer() { clearInterval(slideTimer); slideTimer = setInterval(() => goToSlide((currentSlide + 1) % slides.length), 10000); }
 
     // Setup button
     setupBtn.addEventListener('click', () => { window.location.href = 'index.html'; });
