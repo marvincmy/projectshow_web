@@ -198,6 +198,8 @@ body {
     font-weight: 600;
     font-size: 0.95rem;
     border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
 }
 
 .iframe-display {
@@ -226,32 +228,28 @@ body {
 
 /* ===== PROGRAMME INFORMATION AREA ===== */
 .info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     flex: 1;
-    padding: 30px 20px;
 }
 
 .info-logo {
-    max-width: 80%;
-    height: auto;
+    height: 40px;
+    width: auto;
     object-fit: contain;
-    margin: auto;
 }
 
+/* Gear / Setup button — fixed lower-right corner */
 .setup-btn {
-    display: block;
-    width: 100%;
-    padding: 6px;
+    position: fixed;
+    bottom: 14px;
+    right: 16px;
     background: transparent;
     border: none;
     color: #9ca3af;
-    font-size: 0.72rem;
-    text-align: center;
+    font-size: 1.1rem;
     cursor: pointer;
-    letter-spacing: 0.02em;
+    padding: 4px;
+    line-height: 1;
+    z-index: 100;
 }
 
 .setup-btn:hover {
