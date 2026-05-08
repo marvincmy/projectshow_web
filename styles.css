@@ -209,7 +209,7 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
     gap: 2px;
 }
 
@@ -217,14 +217,14 @@ body {
     font-weight: 700;
     font-size: 1rem;
     color: var(--text-dark);
-    text-align: right;
+    text-align: left;
 }
 
 .panel-header-title .title-chi {
     font-weight: 600;
     font-size: 0.88rem;
     color: var(--text-light);
-    text-align: right;
+    text-align: left;
 }
 
 .iframe-display {
@@ -545,15 +545,15 @@ body {
 .detail-heading span:first-child {
     font-size: 0.82rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: #0055b8;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
 
 .detail-heading span[lang="zh-Hant"] {
     font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--text-light);
+    font-weight: 700;
+    color: #0055b8;
 }
 
 .detail-text {
