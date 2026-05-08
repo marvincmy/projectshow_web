@@ -538,7 +538,7 @@ body {
 /* Scan text */
 .scan-text {
     text-align: center;
-    background: var(--primary-color);
+    background: var(--accent-pink);
     border-radius: 10px;
     padding: 8px 20px;
 }
@@ -557,11 +557,11 @@ body {
 }
 
 .scan-text-pink {
-    background: var(--accent-pink);
+    background: #0055b8;
 }
 
 .scan-text-pink:hover {
-    background: var(--accent-pink-dark);
+    background: #004299;
 }
 
 /* ===== SLIDE 2: PROGRAMME DETAILS ===== */
