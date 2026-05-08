@@ -8,23 +8,6 @@
 </head>
 <body>
     <div class="showcase-container">
-        <div class="header">
-            <div class="header-left">
-                <button id="backBtn" class="btn btn-small">← Back</button>
-                <span id="urlDisplay" class="url-display"></span>
-            </div>
-            <div class="header-right">
-                <button id="changeUrlBtn" class="btn btn-small">Change URL</button>
-                <input 
-                    type="url" 
-                    id="urlInput" 
-                    class="url-input hidden"
-                    placeholder="https://example.com"
-                >
-                <button id="confirmUrlBtn" class="btn btn-small hidden">Confirm</button>
-            </div>
-        </div>
-
         <div class="content-wrapper">
             <!-- Left Panel: Demo Website -->
             <div class="panel left-panel">
@@ -35,22 +18,13 @@
             <!-- Resizable Divider -->
             <div class="divider" id="divider"></div>
 
-            <!-- Right Panel: Advertisement Slideshow -->
+            <!-- Right Panel: Programme Information -->
             <div class="panel right-panel">
-                <div class="panel-header">Advertisement</div>
-                <div class="ad-container">
-                    <img id="adImage" class="ad-image" src="" alt="Advertisement">
-                    <div class="ad-controls">
-                        <button id="prevAdBtn" class="ad-btn">❮</button>
-                        <div class="ad-counter">
-                            <span id="currentAdIndex">1</span> / <span id="totalAds">5</span>
-                        </div>
-                        <button id="nextAdBtn" class="ad-btn">❯</button>
-                    </div>
-                    <div class="ad-timer">
-                        Auto-rotate: <span id="timerDisplay">5s</span>
-                    </div>
+                <div class="panel-header">Programme Information</div>
+                <div class="info-container">
+                    <img src="assets/hkiit_logo.png" class="info-logo" alt="HKIIT Logo">
                 </div>
+                <button id="setupBtn" class="setup-btn">(Setup)</button>
             </div>
         </div>
     </div>

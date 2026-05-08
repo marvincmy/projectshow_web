@@ -137,17 +137,6 @@ body {
     color: white;
 }
 
-.btn-small {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    background-color: var(--primary-color);
-    color: white;
-}
-
-.btn-small:hover {
-    background-color: var(--primary-dark);
-}
-
 .info-box {
     background-color: var(--bg-light);
     border-radius: 12px;
@@ -173,52 +162,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #000;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--bg-dark);
-    color: white;
-    padding: 15px 20px;
-    border-bottom: 1px solid var(--border-color);
-    gap: 20px;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    flex: 1;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.url-display {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    word-break: break-all;
-    max-width: 400px;
-}
-
-.url-input {
-    padding: 8px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    font-size: 0.9rem;
-    color: var(--text-dark);
-    min-width: 300px;
-}
-
-.url-input.hidden,
-.btn.hidden {
-    display: none;
+    background-color: #ffffff;
 }
 
 .content-wrapper {
@@ -231,7 +175,7 @@ body {
 .panel {
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: #ffffff;
     overflow: hidden;
 }
 
@@ -242,22 +186,18 @@ body {
 
 .right-panel {
     flex: 0 0 400px;
-    background-color: var(--bg-dark);
-    color: white;
+    background-color: #ffffff;
+    color: var(--text-dark);
+    border-left: 1px solid var(--border-color);
 }
 
 .panel-header {
-    background-color: #2d3748;
-    color: white;
+    background-color: #ffffff;
+    color: var(--text-dark);
     padding: 12px 15px;
     font-weight: 600;
     font-size: 0.95rem;
     border-bottom: 1px solid var(--border-color);
-}
-
-.left-panel .panel-header {
-    background-color: var(--bg-light);
-    color: var(--text-dark);
 }
 
 .iframe-display {
@@ -270,7 +210,7 @@ body {
 /* ===== DIVIDER ===== */
 .divider {
     width: 4px;
-    background-color: #444;
+    background-color: var(--border-color);
     cursor: col-resize;
     transition: background-color 0.3s;
     flex-shrink: 0;
@@ -284,59 +224,38 @@ body {
     background-color: var(--primary-color);
 }
 
-/* ===== ADVERTISEMENT AREA ===== */
-.ad-container {
+/* ===== PROGRAMME INFORMATION AREA ===== */
+.info-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     flex: 1;
-    padding: 20px;
-    gap: 20px;
+    padding: 30px 20px;
 }
 
-.ad-image {
-    max-width: 100%;
-    max-height: 70%;
+.info-logo {
+    max-width: 80%;
+    height: auto;
     object-fit: contain;
-    border-radius: 8px;
-    background-color: #444;
+    margin: auto;
 }
 
-.ad-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+.setup-btn {
+    display: block;
     width: 100%;
-}
-
-.ad-btn {
-    background-color: var(--primary-color);
-    color: white;
+    padding: 6px;
+    background: transparent;
     border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: all 0.3s;
-}
-
-.ad-btn:hover {
-    background-color: var(--primary-dark);
-    transform: scale(1.1);
-}
-
-.ad-counter {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    white-space: nowrap;
-}
-
-.ad-timer {
-    font-size: 0.85rem;
-    color: var(--text-light);
+    color: #9ca3af;
+    font-size: 0.72rem;
     text-align: center;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+}
+
+.setup-btn:hover {
+    color: #6b7280;
 }
 
 /* ===== RESPONSIVE ===== */
@@ -375,21 +294,7 @@ body {
 
     .right-panel {
         flex: 0 0 250px !important;
-    }
-
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-    }
-
-    .header-right {
-        width: 100%;
-        flex-wrap: wrap;
-    }
-
-    .url-input {
-        min-width: auto;
-        flex: 1;
+        border-left: none;
+        border-top: 1px solid var(--border-color);
     }
 }
